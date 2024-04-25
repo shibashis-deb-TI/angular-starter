@@ -6,6 +6,6 @@ import { ContactListComponent } from './components/contact-list/contact-list.com
 @NgModule({
   declarations: [ContactComponent, ContactListComponent],
   imports: [CommonModule],
-  exports: [ContactListComponent, ContactComponent],
+  exports: [ContactComponent, ContactListComponent],
 })
 export class ContactListModule {}

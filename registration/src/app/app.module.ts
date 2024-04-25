@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactListModule } from './contact-list/contact-list.module';
-import { RouterModule } from '@angular/router';
-import { ContactListComponent } from './contact-list/components/contact-list/contact-list.component';
 
-const routes = [{ path: '', component: ContactListComponent }];
+
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, ContactListModule, RouterModule.forRoot(routes)],
-  bootstrap: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ContactListModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
