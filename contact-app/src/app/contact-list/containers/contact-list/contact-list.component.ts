@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { faker } from '@faker-js/faker';
-import { Contact } from '../../models/contact.model';
+import { ContactsService } from './../../services/contacts.service'
+import { Component } from '@angular/core'
+import { Contact } from '../../models/contact.model'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-contact-list',
@@ -8,10 +9,18 @@ import { Contact } from '../../models/contact.model';
   styleUrls: ['./contact-list.component.scss'],
 })
 export class ContactListComponent {
-  contacts = new Array(3).fill(undefined).map(() => ({
-    firstName: faker.person.firstName(),
-    lastName: faker.person.lastName(),
-    phone: faker.number.int(10),
-    address: faker.location.streetAddress(),
-  })) satisfies Array<Contact>;
+  contacts!: Array<Contact>
+
+  constructor(
+    private contactService: ContactsService,
+    private router: Router,
+  ) {
+    this.contactService
+      .getAllContacts()
+      .subscribe((contacts) => (this.contacts = contacts))
+  }
+
+  addContact() {
+    this.router.navigate(['contact', 'new'])
+  }
 }

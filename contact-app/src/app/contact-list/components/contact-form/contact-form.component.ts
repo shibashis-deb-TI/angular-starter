@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { NgForm } from '@angular/forms'
 
 @Component({
@@ -6,8 +6,8 @@ import { NgForm } from '@angular/forms'
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss'],
 })
-export class ContactFormComponent {
-  onSubmit(form: NgForm) {
-    console.log(form.form.value)
-  }
+export class ContactFormComponent implements OnInit {
+  ngOnInit(): void {}
+
+  onSubmit(form: NgForm) {}
 }

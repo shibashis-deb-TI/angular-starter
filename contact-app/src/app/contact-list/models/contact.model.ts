@@ -1,6 +1,7 @@
 export type Contact = {
-  firstName: string;
-  lastName: string;
-  phone: number;
-  address: string;
-};
+  id: string
+  firstName: string
+  lastName: string
+  phone: number
+  address: string
+}
