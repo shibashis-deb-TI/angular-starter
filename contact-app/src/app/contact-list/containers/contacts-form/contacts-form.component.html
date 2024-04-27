@@ -1,1 +1,17 @@
-<p>contacts-form works!</p>
+<main>
+  <header>
+    <ng-container *ngIf="isEdit && contact; else add">
+      Edit {{ contact.firstName }} {{ contact.lastName }}
+    </ng-container>
+
+    <ng-template #add> Add a new contact </ng-template>
+  </header>
+
+  <section>
+    <app-contact-form
+      [contact]="contact"
+      (create)="createContact($event)"
+      (update)="updateContact($event)"
+    />
+  </section>
+</main>

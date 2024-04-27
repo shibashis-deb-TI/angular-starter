@@ -1,0 +1,26 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <section>
+    <p>First Name</p>
+    <input type="text" name="firstName" [ngModel]="contact?.firstName" />
+  </section>
+  <section>
+    <p>Last Name</p>
+    <input type="text" name="lastName" [ngModel]="contact?.lastName" />
+  </section>
+  <section>
+    <p>Phone Number</p>
+    <input type="text" name="phone" [ngModel]="contact?.phone" />
+  </section>
+  <section>
+    <p>Address</p>
+    <textarea
+      name="address"
+      cols="20"
+      rows="10"
+      [ngModel]="contact?.address"
+    ></textarea>
+  </section>
+
+  <button type="submit" *ngIf="!contact">Add to Contacts</button>
+  <button type="submit" *ngIf="contact">Update</button>
+</form>
