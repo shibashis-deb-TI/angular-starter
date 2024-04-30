@@ -1,18 +1,29 @@
 main {
   height: 100vh;
-  background-color: floralwhite;
+  width: 50%;
   display: flex;
   flex-direction: column;
+  margin: auto auto;
+  align-items: end;
+  gap: 1rem 0;
 }
 
 a {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
   text-decoration: none;
-  color: red;
+  color: black;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0.5rem 1rem;
   border: 2px solid black;
 }
 
 .contact-list {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  width: 100%;
   gap: 1rem 0;
 }
