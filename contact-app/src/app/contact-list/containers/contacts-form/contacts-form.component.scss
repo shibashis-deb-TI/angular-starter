@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: x-large;
+  border: 1px solid black;
+  height: 3rem;
+  margin: auto auto;
+  background-color: rgb(235, 236, 238);
+}

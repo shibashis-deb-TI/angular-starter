@@ -7,11 +7,9 @@
     <ng-template #add> Add a new contact </ng-template>
   </header>
 
-  <section>
-    <app-contact-form
-      [contact]="contact"
-      (create)="createContact($event)"
-      (update)="updateContact($event)"
-    />
-  </section>
+  <app-contact-form
+    [contact]="contact"
+    (create)="createContact($event)"
+    (update)="updateContact($event)"
+  />
 </main>

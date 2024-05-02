@@ -1,15 +1,43 @@
-<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+<form #form="ngForm" (ngSubmit)="handleUpdate(form)">
   <section>
     <p>First Name</p>
-    <input type="text" name="firstName" [ngModel]="contact?.firstName" />
+    <input
+      type="text"
+      name="firstName"
+      required
+      minlength="1"
+      [ngModel]="contact?.firstName"
+      #firstName="ngModel"
+    />
+    <p *ngIf="firstName.hasError('required') && !firstName.untouched">
+      First Name is required
+    </p>
   </section>
   <section>
     <p>Last Name</p>
-    <input type="text" name="lastName" [ngModel]="contact?.lastName" />
+    <input
+      type="text"
+      name="lastName"
+      required
+      [ngModel]="contact?.lastName"
+      #lastName="ngModel"
+    />
+    <p *ngIf="lastName.hasError('required') && !lastName.untouched">
+      Last Name is required
+    </p>
   </section>
   <section>
     <p>Phone Number</p>
-    <input type="text" name="phone" [ngModel]="contact?.phone" />
+    <input
+      type="text"
+      name="phone"
+      required
+      [ngModel]="contact?.phone"
+      #phone="ngModel"
+    />
+    <p *ngIf="phone.hasError('required') && !phone.untouched">
+      Phone Number is required
+    </p>
   </section>
   <section>
     <p>Address</p>
@@ -17,10 +45,21 @@
       name="address"
       cols="20"
       rows="10"
+      required
       [ngModel]="contact?.address"
+      #address="ngModel"
     ></textarea>
+    <p *ngIf="address.hasError('required') && !address.untouched">
+      Address is required
+    </p>
   </section>
 
-  <button type="submit" *ngIf="!contact">Add to Contacts</button>
+  <button
+    type="submit"
+    *ngIf="!contact"
+    [disabled]="form.form.untouched || form.form.invalid"
+  >
+    Add to Contacts
+  </button>
   <button type="submit" *ngIf="contact">Update</button>
 </form>
