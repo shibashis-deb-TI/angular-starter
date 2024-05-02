@@ -1,7 +1,7 @@
 import { ContactsService } from './../../services/contacts.service'
 import { Component } from '@angular/core'
 import { Contact } from '../../models/contact.model'
-import { ActivatedRoute, Router } from '@angular/router'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-contact-list',

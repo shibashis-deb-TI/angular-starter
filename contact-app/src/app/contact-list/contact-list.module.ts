@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
-import { ContactListComponent } from './containers'
-import { ContactComponent, ContactSingleComponent } from './components'
-import { ContactsFormComponent } from './containers/contacts-form/contacts-form.component'
 import { RouterModule, Routes } from '@angular/router'
+
+import { ContactListComponent, ContactsFormComponent } from './containers'
+import { ContactComponent, ContactSingleComponent } from './components'
 
 const routes: Routes = [
   { path: 'contact-list', component: ContactListComponent },

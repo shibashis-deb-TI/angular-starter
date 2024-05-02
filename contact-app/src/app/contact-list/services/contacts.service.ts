@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { filter, of, tap } from 'rxjs'
-import { Contact } from '../models/contact.model'
+import { of, tap } from 'rxjs'
+import { Contact } from '../models'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactsService {
   contacts: Array<Contact> = []
-  isStale: boolean = false
+  isStale = false
 
   constructor(private http: HttpClient) {}
 
@@ -49,7 +49,7 @@ export class ContactsService {
   update(contact: Contact) {
     const { id, ...rest } = contact
     return this.http
-      .put<Contact>(`/api/contacts/${contact.id}`, rest)
+      .put<Contact>(`/api/contacts/${id}`, rest)
       .pipe(tap(() => (this.isStale = true)))
   }
 }

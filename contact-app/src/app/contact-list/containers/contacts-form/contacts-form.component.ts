@@ -1,7 +1,7 @@
 import { ContactsService } from './../../services/contacts.service'
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { Contact } from '../../models/contact.model'
+import { Contact } from '../../models'
 
 @Component({
   selector: 'app-contacts-form',
@@ -38,7 +38,7 @@ export class ContactsFormComponent implements OnInit {
   createContact(contact: Omit<Contact, 'id'>): void {
     this.contactsService
       .create(contact)
-      .subscribe((contact) => this.router.navigate(['contact-list']))
+      .subscribe(() => this.router.navigate(['contact-list']))
   }
 
   updateContact(contact: Contact): void {

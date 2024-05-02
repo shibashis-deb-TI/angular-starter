@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core'
-
-import { AppComponent } from './app.component'
-import { ContactListModule } from './contact-list'
-
 import { RouterModule, Routes } from '@angular/router'
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from '@angular/common/http'
+
+import { AppComponent } from './app.component'
+import { ContactListModule } from './contact-list'
 
 const routes: Routes = [
   {
