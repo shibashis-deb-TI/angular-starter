@@ -9,7 +9,10 @@
       [ngModel]="contact?.firstName"
       #firstName="ngModel"
     />
-    <p *ngIf="firstName.hasError('required') && !firstName.untouched">
+    <p
+      class="error"
+      *ngIf="firstName.hasError('required') && firstName.touched"
+    >
       First Name is required
     </p>
   </section>
@@ -22,7 +25,7 @@
       [ngModel]="contact?.lastName"
       #lastName="ngModel"
     />
-    <p *ngIf="lastName.hasError('required') && !lastName.untouched">
+    <p class="error" *ngIf="lastName.hasError('required') && lastName.touched">
       Last Name is required
     </p>
   </section>
@@ -35,7 +38,7 @@
       [ngModel]="contact?.phone"
       #phone="ngModel"
     />
-    <p *ngIf="phone.hasError('required') && !phone.untouched">
+    <p class="error" *ngIf="phone.hasError('required') && phone.touched">
       Phone Number is required
     </p>
   </section>
@@ -49,17 +52,11 @@
       [ngModel]="contact?.address"
       #address="ngModel"
     ></textarea>
-    <p *ngIf="address.hasError('required') && !address.untouched">
+    <p class="error" *ngIf="address.hasError('required') && address.touched">
       Address is required
     </p>
   </section>
 
-  <button
-    type="submit"
-    *ngIf="!contact"
-    [disabled]="form.form.untouched || form.form.invalid"
-  >
-    Add to Contacts
-  </button>
+  <button type="submit" *ngIf="!contact">Add to Contacts</button>
   <button type="submit" *ngIf="contact">Update</button>
 </form>

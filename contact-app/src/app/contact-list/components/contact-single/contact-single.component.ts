@@ -18,7 +18,7 @@ export class ContactSingleComponent {
 
   onSubmit(form: NgForm) {
     if (form.invalid) {
-      return
+      return form.form.markAllAsTouched()
     }
 
     if (this.contact) {
@@ -30,7 +30,7 @@ export class ContactSingleComponent {
   }
 
   handleUpdate(form: NgForm) {
-    if (!form.form.pristine) {
+    if (!this.contact) {
       return this.onSubmit(form)
     }
 
