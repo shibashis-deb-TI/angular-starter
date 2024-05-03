@@ -1,0 +1,13 @@
+{
+  "customers": [
+    {
+      "id": "wedf5y",
+      "name": "Admin",
+      "role": "Admin",
+      "contact": "999999998",
+      "address": "Italy",
+      "email": "admin@gmail.com",
+      "password": "Test@123"
+    }
+  ]
+}

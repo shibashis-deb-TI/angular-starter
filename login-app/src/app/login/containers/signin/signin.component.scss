@@ -1,0 +1,76 @@
+// 🤔 Use partial classes and nesting to reuse tailwind?
+
+// .flex {
+//   display: flex;
+
+//   &-row {
+//     flex-direction: row;
+
+//     &-center-center {
+//       justify-content: center;
+//       align-items: center;
+//     }
+
+//     &-center-center {
+//       justify-content: center;
+//       align-items: center;
+//     }
+//   }
+
+//   &-col {
+//     flex-direction: column;
+
+//     &-center-center {
+//       justify-content: center;
+//       align-items: center;
+//     }
+
+//     &-center-center {
+//       justify-content: center;
+//       align-items: center;
+//     }
+//   }
+// }
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+}
+
+p {
+  font-size: x-large;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(9, 19, 216);
+  font-size: medium;
+  padding: 0.5rem;
+}
+
+a:hover {
+  background-color: rgb(240, 240, 240);
+  border-radius: 1rem;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+
+  &-link {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+}

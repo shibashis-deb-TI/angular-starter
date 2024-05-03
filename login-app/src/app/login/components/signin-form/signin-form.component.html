@@ -1,0 +1,46 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <section>
+    <p class="label">Email</p>
+    <input
+      type="email"
+      name="email"
+      placeholder="Enter your email address"
+      formControlName="email"
+    />
+    <p
+      class="error"
+      *ngIf="
+        form.get('email')?.hasError('required') && form.get('email')?.touched
+      "
+    >
+      Email is required!
+    </p>
+  </section>
+  <section>
+    <p class="label">Password</p>
+    <input
+      type="password"
+      name="password"
+      placeholder="Enter your password"
+      formControlName="password"
+    />
+    <ng-container
+      *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+    >
+      <p class="error" *ngIf="form.get('password')?.hasError('required')">
+        Password is required!
+      </p>
+      <p
+        class="error"
+        *ngIf="
+          form.get('password')?.hasError('invalidPassword') &&
+          form.get('password')?.dirty
+        "
+      >
+        Please check the password!
+      </p>
+    </ng-container>
+  </section>
+
+  <button type="submit">Login</button>
+</form>
