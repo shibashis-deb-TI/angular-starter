@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AppValidators } from 'src/app/validators';
-import { toString } from 'src/app/utils';
+import { AppValidators } from '../../../../validators';
+import { toString } from '../../../../utils';
 
 @Component({
   selector: 'app-signin-form',
@@ -9,6 +9,8 @@ import { toString } from 'src/app/utils';
   styleUrls: ['./signin-form.component.scss'],
 })
 export class SigninFormComponent {
+  @Input() message!: string;
+
   @Output() submitCredentials = new EventEmitter<{
     email: string;
     password: string;

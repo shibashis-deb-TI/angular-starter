@@ -1,56 +1,45 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs';
 import { User } from '../models';
+import { map, tap } from 'rxjs';
 
 @Injectable()
 export class SigninformService {
-  private users!: Array<User>;
   private activeUser!: User;
   private isLoggedIn = false;
 
   constructor(private http: HttpClient) {}
 
-  getAllUsers() {
-    return this.http
-      .get<User[]>('/api/customers', {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .pipe(tap((users) => (this.users = users)));
+  getUsers() {
+    return this.http.get<User[]>('/api/customers', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 
   login(credentials: { email: string; password: string }) {
-    // this.getAllUsers().subscribe();
-
-    // const user = this.get.find(
-    //   (user) =>
-    //     user.email === credentials.email &&
-    //     user.password === credentials.password
-    // );
-
-    const user = this.getAllUsers().pipe(
+    return this.getUsers().pipe(
       map((users) => {
-        const target = users.find(
+        const targetUser = users.find(
           (user) =>
             user.email === credentials.email &&
             user.password === credentials.password
         );
 
-        if (!target) {
+        if (!targetUser) {
           return;
         }
-        return target;
+
+        return targetUser;
+      }),
+      tap((user) => {
+        if (user) {
+          this.activeUser = user;
+          this.isLoggedIn = true;
+        }
       })
     );
-
-    user.subscribe((value) => console.log(value));
-
-    // if (user) {
-    //   this.isLoggedIn = true;
-    //   this.activeUser = user;
-    // }
   }
 
   isAuthenticated() {

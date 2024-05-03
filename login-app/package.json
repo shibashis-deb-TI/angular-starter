@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint --fix",
-    "types": "tsc --noEmit src/*.ts",
+    "types": "tsc --noEmit -p .",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "db": "json-server --watch db.json"
