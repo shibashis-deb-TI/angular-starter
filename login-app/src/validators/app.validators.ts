@@ -10,4 +10,5 @@ export class AppValidators {
       ? null
       : { invalidPassword: true };
   }
+
 }

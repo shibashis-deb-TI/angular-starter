@@ -9,6 +9,11 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login').then((module) => module.LoginModule),
   },
+  {
+    path: 'signup',
+    loadChildren: () =>
+      import('./signup').then((module) => module.SignupModule),
+  },
   { path: '', pathMatch: 'full', redirectTo: 'login' },
 ];
 

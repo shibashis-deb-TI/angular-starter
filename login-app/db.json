@@ -8,6 +8,15 @@
       "address": "Italy",
       "email": "admin@gmail.com",
       "password": "Test@123"
+    },
+    {
+      "id": "676b",
+      "name": "Shashikanth Reddy",
+      "address": "Nice Men's Hostel and PG, Kavuri Hills, Madhapur",
+      "contact": "9401895551",
+      "email": "shashikanth@gmail.com",
+      "password": "Shashi@123",
+      "role": "Employee"
     }
   ]
 }

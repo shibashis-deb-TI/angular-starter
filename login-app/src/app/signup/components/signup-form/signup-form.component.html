@@ -1,0 +1,115 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <section formGroupName="details">
+    <div>
+      <p>Name</p>
+      <input type="text" name="name" formControlName="name" />
+      <ng-container
+        *ngIf="
+          form.get('details.name')?.invalid && form.get('details.name')?.touched
+        "
+      >
+        <p *ngIf="form.get('details.name')?.hasError('required')">
+          Required field!
+        </p>
+      </ng-container>
+    </div>
+    <div>
+      <p>Contact</p>
+      <input type="text" name="contact" formControlName="contact" />
+      <ng-container
+        *ngIf="
+          form.get('details.contact')?.invalid &&
+          form.get('details.contact')?.touched
+        "
+      >
+        <p *ngIf="form.get('details.contact')?.hasError('required')">
+          Required field!
+        </p>
+        <p *ngIf="form.get('details.contact')?.hasError('maxLength')">
+          Contact cannot be more than 10 digits!
+        </p>
+      </ng-container>
+    </div>
+    <div>
+      <p>Address</p>
+      <textarea name="address" formControlName="address"></textarea>
+      <ng-container
+        *ngIf="
+          form.get('details.address')?.invalid &&
+          form.get('details.address')?.touched
+        "
+      >
+        <p *ngIf="form.get('details.address')?.hasError('required')">
+          Required field!
+        </p>
+        <p *ngIf="form.get('details.address')?.hasError('minLength')">
+          Address cannot be less than 5 characters!
+        </p>
+      </ng-container>
+    </div>
+  </section>
+
+  <section formGroupName="credentials">
+    <div>
+      <p>Email</p>
+      <input type="email" name="email" formControlName="email" />
+      <ng-container
+        *ngIf="
+          form.get('credentials.email')?.invalid &&
+          form.get('credentials.email')?.touched
+        "
+      >
+        <p *ngIf="form.get('credentials.email')?.hasError('required')">
+          Required field!
+        </p>
+        <p *ngIf="form.get('credentials.email')?.hasError('email')">
+          Invalid email!
+        </p>
+        <p *ngIf="form.get('credentials.email')?.hasError('emailExists')">
+          Email already registered!
+        </p>
+      </ng-container>
+    </div>
+    <div>
+      <p>Contact</p>
+      <input type="password" name="password" formControlName="password" />
+      <ng-container
+        *ngIf="
+          form.get('credentials.password')?.invalid &&
+          form.get('credentials.password')?.touched
+        "
+      >
+        <p *ngIf="form.get('credentials.password')?.hasError('required')">
+          Required field!
+        </p>
+        <p
+          *ngIf="
+            form.get('credentials.password')?.hasError('invalidPassword') &&
+            form.get('credentials.password')?.dirty
+          "
+        >
+          Invalid password!
+        </p>
+      </ng-container>
+    </div>
+  </section>
+
+  <section formGroupName="role">
+    <div>
+      <p>Role</p>
+      <select name="role" formControlName="role">
+        <option value=""></option>
+        <option value="Admin">Admin</option>
+        <option value="Employee">Employee</option>
+      </select>
+    </div>
+
+    <ng-container
+      *ngIf="form.get('role.role')?.invalid && form.get('role.role')?.touched"
+    >
+      <p *ngIf="form.get('role.role')?.hasError('required')">Required field!</p>
+    </ng-container>
+  </section>
+
+  <button type="submit">Signup</button>
+</form>

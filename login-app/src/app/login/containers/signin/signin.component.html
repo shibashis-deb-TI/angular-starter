@@ -1,10 +1,13 @@
 <main>
   <article class="login">
     <p>Welcome back!</p>
-    <app-signin-form (submitCredentials)="handleLogin($event)" [message]="message"/>
+    <app-signin-form
+      (submitCredentials)="handleLogin($event)"
+      [message]="message"
+    />
     <div class="login-link">
       <div>Don't have an account?</div>
-      <a [routerLink]="['/signup']"> Signup!</a>
+      <a routerLink="/signup"> Signup!</a>
     </div>
   </article>
 </main>
