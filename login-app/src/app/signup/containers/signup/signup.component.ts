@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from '../../../login';
-import { SignupService } from '../../services';
+import { AppService } from '../../../app.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent {
-  constructor(private service: SignupService, private router: Router) {}
+  constructor(private service: AppService, private router: Router) {}
 
   handleSignUp(event: Omit<User, 'id'>) {
     this.service

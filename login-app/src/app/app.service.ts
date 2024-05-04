@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../models';
+import { User } from './types';
 import { map, tap } from 'rxjs';
 
-@Injectable()
-export class SigninformService {
+@Injectable({
+  providedIn: 'root',
+})
+export class AppService {
   private activeUser!: User;
   private isLoggedIn = false;
 
@@ -48,5 +50,23 @@ export class SigninformService {
 
   isAdmin() {
     return this.activeUser && this.activeUser.role === 'Admin';
+  }
+
+  checkEmail(email: string) {
+    return this.http.get<User[]>('/api/customers').pipe(
+      map((users) => {
+        const emailList = users.map((user) => user.email);
+
+        return emailList.includes(email);
+      })
+    );
+  }
+
+  signup(user: Omit<User, 'id'>) {
+    return this.http.post<User>('/api/customers', user, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 }

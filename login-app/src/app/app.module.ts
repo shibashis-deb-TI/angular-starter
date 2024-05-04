@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { AppService } from './app.service';
+import { isAuthenticated } from 'src/guards';
 
 const routes: Routes = [
   {
@@ -14,11 +16,17 @@ const routes: Routes = [
     loadChildren: () =>
       import('./signup').then((module) => module.SignupModule),
   },
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  {
+    path: 'dashboard',
+    canActivate: [isAuthenticated],
+    loadChildren: () =>
+      import('./dashboard').then((module) => module.DashboardModule),
+  },
 ];
 
 @NgModule({
   declarations: [AppComponent],
+  providers: [AppService],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   bootstrap: [AppComponent],
 })

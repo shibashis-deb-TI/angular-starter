@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../../models';
-import { SigninformService } from '../../services';
+import { AppService } from '../../../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -10,7 +11,7 @@ import { SigninformService } from '../../services';
 export class SigninComponent {
   message = '';
 
-  constructor(private service: SigninformService) {}
+  constructor(private service: AppService, private router: Router) {}
 
   handleLogin(event: Pick<User, 'email' | 'password'>) {
     this.service.login({ ...event }).subscribe((value) => {
@@ -19,7 +20,7 @@ export class SigninComponent {
         return;
       }
 
-      alert(`Signed in! ${value.name}`);
+      this.router.navigate(['dashboard']);
     });
   }
 }

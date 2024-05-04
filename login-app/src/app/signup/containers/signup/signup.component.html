@@ -1,1 +1,7 @@
-<app-signup-form (addUser)="handleSignUp($event)" />
+<main>
+  <app-signup-form (addUser)="handleSignUp($event)" />
+  <div>
+    <p>Already have an account?</p>
+    <a routerLink="/login">Login!</a>
+  </div>
+</main>

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { AppValidators } from 'src/validators';
-import { SignupService } from '../../services';
+import { AppService } from '../../../app.service';
 import { map } from 'rxjs';
 import { User } from 'src/app/login';
 import { toString } from 'src/utils';
@@ -33,7 +33,7 @@ export class SignupFormComponent {
     }),
   });
 
-  constructor(private fb: FormBuilder, private service: SignupService) {}
+  constructor(private fb: FormBuilder, private service: AppService) {}
 
   validateEmail(control: AbstractControl) {
     return this.service.checkEmail(control.value).pipe(
