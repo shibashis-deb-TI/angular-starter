@@ -13,6 +13,7 @@ export const getLoggedInUser: ResolveFn<User> = (
   }
 
   // 😅 Seems safe to use non null since navigation handles unauthorized navigation!
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   return inject(AppService).loggedInUser(id!);
 };
 
