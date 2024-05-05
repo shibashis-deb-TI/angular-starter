@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppService } from './app.service';
-import { isAuthenticated } from 'src/guards';
+import { isAuthenticated } from 'src/helpers';
 
 const routes: Routes = [
   {

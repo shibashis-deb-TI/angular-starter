@@ -9,7 +9,7 @@ import {
   getLoggedInUser,
   isAdmin,
   isAuthenticated,
-} from 'src/guards';
+} from 'src/helpers';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileViewComponent } from './containers/profile-view/profile-view.component';
 import { EmployeesComponent } from './components/employees/employees.component';
