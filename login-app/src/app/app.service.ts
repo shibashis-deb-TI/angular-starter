@@ -7,7 +7,7 @@ import { map, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AppService {
-  private activeUser!: User;
+  private activeUser: User | undefined = undefined;
   private isLoggedIn = false;
 
   constructor(private http: HttpClient) {}
@@ -44,12 +44,25 @@ export class AppService {
     );
   }
 
+  logout() {
+    this.activeUser = undefined;
+    this.isLoggedIn = false;
+  }
+
   isAuthenticated() {
     return this.isLoggedIn;
   }
 
   isAdmin() {
-    return this.activeUser && this.activeUser.role === 'Admin';
+    return this.activeUser && this.activeUser.role === 'Admin' ? true : false;
+  }
+
+  loggedInUser(id: string) {
+    return this.http.get<User>(`/api/customers/${id}`);
+  }
+
+  get user() {
+    return this.activeUser;
   }
 
   checkEmail(email: string) {

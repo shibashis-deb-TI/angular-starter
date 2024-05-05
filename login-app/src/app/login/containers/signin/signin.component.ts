@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
   message = '';
+  user!: User;
 
   constructor(private service: AppService, private router: Router) {}
 

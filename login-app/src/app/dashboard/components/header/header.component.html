@@ -1,5 +1,11 @@
 <header>
-  <p>{{ title }}</p>
+  <section>
+    <p>Dashboard</p>
+    <div>
+      Welcome
+      <p>{{ user?.name }}</p>
+    </div>
+  </section>
 
   <button type="button" (click)="onLogout()">Logout</button>
 </header>

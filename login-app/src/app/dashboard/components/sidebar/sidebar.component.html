@@ -1,4 +1,6 @@
 <aside>
-  <a routerLink="/dashboard/profile">Profile</a>
-  <a routerLink="/dashboard/employees">Employees</a>
+  <ul>
+    <li><a [routerLink]="['profile', userId]">Profile</a></li>
+    <li *ngIf="isAdmin"><a routerLink="employees">Employees</a></li>
+  </ul>
 </aside>

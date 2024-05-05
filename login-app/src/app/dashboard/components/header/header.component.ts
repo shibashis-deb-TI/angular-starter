@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from 'src/app/types';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Input() title!: string;
+  @Input() user!: User | undefined;
   @Output() logout = new EventEmitter<void>();
 
   onLogout() {
-    console.log('logged out!');
+    this.logout.emit()
   }
 }

@@ -1,0 +1,23 @@
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container *ngIf="users">
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.contact }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</section>

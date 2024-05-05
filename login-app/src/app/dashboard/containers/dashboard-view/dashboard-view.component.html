@@ -1,7 +1,7 @@
 <main>
-  <app-header />
+  <app-header [user]="user" (logout)="handleLogout()"/>
   <section>
-    <app-sidebar  [isAdmin]="isAdmin"/>
+    <app-sidebar [userId]="user?.id" [isAdmin]="isAdmin" />
     <router-outlet />
   </section>
 </main>
